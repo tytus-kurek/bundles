@@ -1,0 +1,24 @@
+series: bionic
+machines:
+  "0":
+    constraints: tags=swift
+    series: bionic
+services:
+  swift-proxy:
+    charm: cs:swift-proxy
+    num_units: 1
+    options:
+      replicas: 1
+      zone-assignment: manual
+    to:
+    - lxd:0
+  swift-storage:
+    charm: cs:swift-storage
+    num_units: 1
+    options:
+      block-device: sdb sdc sdd
+      zone: 1
+    to:
+    - 0
+relations:
+  - [ "swift-proxy:swift-storage", "swift-storage:swift-storage" ]
