@@ -5,6 +5,7 @@ services:
     num_units: 3
     options:
       root-password: "password"
+      sst-password: "password"
       vip: "172.16.0.254"
   hacluster-percona-cluster:
     charm: cs:hacluster

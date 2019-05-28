@@ -5,3 +5,4 @@ services:
     num_units: 1
     options:
       root-password: "password"
+      sst-password: "password"
